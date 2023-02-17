@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Proizvod extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'image',
+        'naziv',
+        'proizvodjac',
+        'cena',
+        'kolicina',
+        'vrsta',
+        'zemlja_porekla'
+      ];
+
+    public function vrsta()
+    {
+       return $this->belongsTo(Vrsta::class);
+    }
+    public function stavke()
+    {
+        return $this->belongsTo(StavkaKorpe::class);
+    }
 }
