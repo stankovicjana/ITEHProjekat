@@ -23,7 +23,7 @@ class ProizvodResource extends JsonResource
             'zemlja_porekla' => $this->resource->zemlja_porekla,
             'cena' => $this->resource->cena,
             'kolicina' => $this->resource->kolicina,
-            'vrsta' => new VrstaResource(Vrsta::find($this->resource->category)),
+            'vrsta' => new VrstaResource(Vrsta::find($this->resource->vrsta)),
             'image' => $this->resource->image,
         ];
     }
