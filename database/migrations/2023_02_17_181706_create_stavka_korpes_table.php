@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('stavka_korpes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('korpa_id');
+            $table->foreignId('proizvod_id');
+            $table->integer('kolicina'); 
             $table->timestamps();
         });
     }
