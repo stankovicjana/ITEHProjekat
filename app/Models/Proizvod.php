@@ -11,10 +11,10 @@ class Proizvod extends Model
     protected $fillable = [
         'image',
         'naziv',
-        'proizvodjac',
         'cena',
         'kolicina',
         'vrsta',
+        'proizvodjac',
         'zemlja_porekla'
       ];
 
