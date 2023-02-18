@@ -1,12 +1,12 @@
 /*ovo je za one recenice u login/register formi I am new here ili I already have an account*/
 .tekstForme{
     text-decoration: none;
-    color: white;
+    color: black;
 
 }
 .tekstForme:hover{
     text-decoration: none;
-    color: white;
+    color: rgb(92, 73, 73);
 
 }
 
@@ -493,7 +493,7 @@
   }
 
   .card-3 .card-heading {
-    background: url("https://www.realsimple.com/thmb/JHn5-dER8LyFrumHZuRjaYd7h_8=/1260x1500/filters:fill(auto,1)/big-batch-cocktails-minty-moscow-mule-547c58d091324168af474f1eb955a0b0.jpg") top left/cover no-repeat;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2TG-7dBxzSkx1dtN4M-QV435QT1AnuQ51N3N6it78WNeK9lrtopBX3Aqq9L0QyckSpD8&usqp=CAU") top left/cover no-repeat;
     display: table-cell;
     width: 50%;
   }
