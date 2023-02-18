@@ -1,8 +1,9 @@
-import React, { useState } from 'react'; 
 import axios from 'axios';
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 
 import './LoginRegisterCSS.css';
+
 
 function Login({addToken}) {
     const [userData,setUserData]=useState({
@@ -18,45 +19,44 @@ function Login({addToken}) {
         console.log(newUserData);//probaj
         setUserData(newUserData); //podatke koje smo pokupili iz forme sada upisujemo u polje userData
         //te podatke sada treba da saljemo laravelu, ali to radimo kada korisnik submituje formu
-
     }
     let navigate = useNavigate();
-    //ovo smo dodali tek nakon axios.post() i nakon e.preventDef. treba da sredimo onaj eror 419 u verifyCRFToken-u (vidi poslednje vezbe)
     function handleLogin(e){
-    e.preventDefault(); // da zaustavi refresovanje na stranici da bi mogla da se izvrsi metoda handleLogin jer metoda onSubmit u formi vec ima neko svoje predefinisano ponasanje
+                //ovo smo dodali tek nakon axios.post() i nakon e.preventDef. treba da sredimo onaj eror 419 u verifyCRFToken-u (vidi poslednje vezbe)
+                e.preventDefault(); // da zaustavi refresovanje na stranici da bi mogla da se izvrsi metoda handleLogin jer metoda onSubmit u formi vec ima neko svoje predefinisano ponasanje
 
-    //za komunikaciju izmedju laravela i reacta cemo koristiti axios
-    //moramo da pokrenemo npm install axios i da ga importujemo
-    //"http://127.0.0.1:8000/api/login" je ruta na kojoj se ovo nalazi u laravelu
-    axios
-        .post("http://127.0.0.1:8000/api/login", userData )
-        .then((res)=>{ //ako se uspesno izvrsi logovanje uci ce u funkciju (zbog ovog then)
-            console.log(res.data[0]);
-            if(res.data.success===true){
-               // alert("USPESNO");  
-
-
-                //token koji smo dobili od korisnika treba da sacuvamo u storag-u da bismo znali cemu taj korisnik ima pristup
-                window.sessionStorage.setItem("auth_token",res.data[0].token);
-                window.sessionStorage.setItem("auth_name",res.data[0].username);
-                addToken(res.data[0].token);
-                console.log(res.data[0].token);
-                if(res.data[0].role === 'admin')
-                {
-                     navigate("/admin")
-                }
-                else{
-                    navigate("/pica"); //ovde cemo upisati na koju stranicu treba da ode ulogovani korisnik
-                }
+                //za komunikaciju izmedju laravela i reacta cemo koristiti axios
+                //moramo da pokrenemo npm install axios i da ga importujemo
+                //"http://127.0.0.1:8000/api/login" je ruta na kojoj se ovo nalazi u laravelu
+                axios
+                    .post("http://127.0.0.1:8000/api/login", userData )
+                    .then((res)=>{ //ako se uspesno izvrsi logovanje uci ce u funkciju (zbog ovog then)
+                        console.log(res.data[0]);
+                        if(res.data.success===true){
+                           // alert("USPESNO");  
 
 
+                            //token koji smo dobili od korisnika treba da sacuvamo u storag-u da bismo znali cemu taj korisnik ima pristup
+                            window.sessionStorage.setItem("auth_token",res.data[0].token);
+                            window.sessionStorage.setItem("auth_name",res.data[0].username);
+                            addToken(res.data[0].token);
+                            console.log(res.data[0].token);
+                            if(res.data[0].role === 'admin')
+                            {
+                                 navigate("/admin")
+                            }
+                            else{
+                                navigate("/proizvodi"); //ovde cemo upisati na koju stranicu treba da ode ulogovani korisnik
+                            }
 
-            }else{
-                alert("NEUSPESNO");
-            }
-    });
-}
- 
+
+
+                        }else{
+                            alert("NEUSPESNO");
+                        }
+                    });
+
+    }
     return (
         <div className='login'>
             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
@@ -64,9 +64,9 @@ function Login({addToken}) {
                     <div className="card card-3">
                         <div className="card-heading"></div>
                         <div className="card-body">
-                            <h2 className="title">Login</h2>
+                            <h2 className="title">Log in</h2>
                             <form onSubmit={handleLogin} >                          
-
+                                                      
                                 <div className="input-group">
                                     <input 
                                         className="input--style-3" 
@@ -76,15 +76,15 @@ function Login({addToken}) {
                                         onInput={handleInput}
                                     />
                                 </div>
-
+                                
                                 <div className="input-group">
                                     <input className="input--style-3" type="password" placeholder="Password" name="password"  onInput={handleInput}/>
                                 </div>
                                 <div className="p-t-10">
-                                    <button className="btn btn--pill btn--green" type="submit" id="login" name="login">Login</button>
+                                    <button className="btn btn--pill btn--green" type="submit" id="login" name="login">Submit</button>
                                 </div>
                                 <br/><br/>
-                                <p><a href="/register"  className='tekstForme'>Register</a></p>
+                                <p><a href="/register"  className='tekstForme'>I am new here!</a></p>
                         </form>
                     </div>
                 </div>
@@ -93,5 +93,4 @@ function Login({addToken}) {
             </div>
     )
 };
-
 export default Login;
