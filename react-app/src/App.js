@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        const res = await axiosInstance.get( "http://127.0.0.1:8000/api/proizvodi",
+        const res = await axiosInstance.get( "http://127.0.0.1:8000/api/proizvod",
           {
             headers: {
               token:
