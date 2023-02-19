@@ -252,6 +252,20 @@ h6 {
   background: #025cee;
 }
 
+.btn--label {
+  background: #d19dff85;
+  border-radius: 20px;
+  font-size: 18;
+}
+
+.btn--label-extra {
+  background: #af00fa85;
+  border-radius: 20px;
+  font-size: 18;
+  padding: 15px;
+  border-spacing: 10px;
+}
+
 .btn--green:hover {
   background: #00c0a9;
 }

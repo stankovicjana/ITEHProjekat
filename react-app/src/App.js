@@ -53,6 +53,7 @@ function App() {
     cartProducts.forEach((p)=>{
       suma+=p.cena*p.kolicina;
     })
+    console.log(suma);
     setSumPrice(suma);
   }
   function jeUKorpi(id){
@@ -73,7 +74,7 @@ function App() {
     proizvodi.forEach((p) => {
       if (p.id === id) {
         p.kolicina++;
-        setSumPrice(sum+p.cena);
+        // setSumPrice(sum+p.cena);
         console.log(sum);
       }
     });
@@ -108,7 +109,7 @@ function App() {
             <Route path="/login" element={ <Login  addToken={addToken} ></Login>}></Route>    
             <Route path="/register" element={ <Register></Register>}></Route>
             <Route path="/proizvodi" element={ <Proizvod proizvodi={proizvodi} onAdd={addProduct} onRemove={removeProduct} ></Proizvod>}></Route>
-            <Route path="/korpa" element={ <Korpa proizvodi={cartProducts} onAdd={addProduct} onRemove={removeProduct} ></Korpa>}></Route>
+            <Route path="/korpa" element={ <Korpa proizvodi={cartProducts} onAdd={addProduct} onRemove={removeProduct} sum={sum} ></Korpa>}></Route>
         </Routes>
         <Footer></Footer>
         </BrowserRouter>

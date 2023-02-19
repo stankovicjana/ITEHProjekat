@@ -23,13 +23,14 @@ function ProizvodKartica({product,onAdd,onRemove}) {
 
          <button
                   className="btn"
-                  onClick={() => onAdd( product.id)}
+                  onClick={() => { onAdd( product.id); alert("Proizvod je dodat u korpu!");}}
                 >
                 <BsPlusLg />
               </button>
               <button 
                 className="btn"
-                onClick={() => onRemove( product.id)}>
+                onClick={() => {onRemove( product.id); alert("Proizvod je obrisan iz korpe!");}}
+                >
                 <BsDashLg />
             </button>
 
