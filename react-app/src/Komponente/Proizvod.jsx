@@ -20,13 +20,13 @@ function Proizvod({proizvodi,onAdd,onRemove }) {
             {sort===true?
               <>
                 {proizvodi
-                     .sort((a, b) => a.price < b.price ? -1 : 1)
+                     .sort((a, b) => a.cena < b.cena ? -1 : 1)
                     .map((t)=>(<ProizvodKartica key={t.id} product={t} onAdd={onAdd} onRemove={onRemove} ></ProizvodKartica>))}
               </>
               :
               <>
                 {proizvodi
-                     .sort((a, b) => a.price > b.price ? -1 : 1)
+                     .sort((a, b) => a.cena > b.cena ? -1 : 1)
                     .map((t)=>(<ProizvodKartica key={t.id} product={t}  onAdd={onAdd} onRemove={onRemove}></ProizvodKartica>))}
               </>
             }

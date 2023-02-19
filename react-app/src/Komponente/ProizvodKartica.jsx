@@ -18,7 +18,7 @@ function ProizvodKartica({product,onAdd,onRemove}) {
         <br /><br />  <b> Proizvodjac:</b>   {product.proizvodjac} 
         <br /><br />  <b>  Vrsta: </b> {product.vrsta.naziv}
 
-        <br /><br /> <b>  Cena:</b> {product.cena} $ 
+        <br /><br /> <b>  Cena:</b> {product.cena} RSD 
          </h6>
 
          <button
