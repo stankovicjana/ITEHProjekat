@@ -30,17 +30,15 @@ Route::get('poruke',[PorukaController::class,'index']);
 Route::resource('/korpe', KorpaController::class ) ;  
 Route::resource('/stavke', StavkaKorpeController::class ) ;  
 Route::get('proizvod',[ProizvodController::class,'index']);
+Route::post('proizvod',[ProizvodController::class,'store']);
+Route::put('proizvod/{id}',[ProizvodController::class,'update']);
+Route::delete('proizvod/{id}',[ProizvodController::class,'destroy']);
+Route::get('proizvod/{id}',[ProizvodController::class,'show']);
 Route::group(['middleware' => ['auth:sanctum']], function () {  //ulogovani korisnici
     Route::get('/profile', function (Request $request) {  
         return auth()->user();
     });
     Route::resource('stavkeKorpe', StavkaKorpeController::class ) ;
-
-    Route::post('proizvod',[ProizvodController::class,'store']);
-    Route::put('proizvod/{id}',[ProizvodController::class,'update']);
-    Route::delete('proizvod/{id}',[ProizvodController::class,'destroy']);
-
-    Route::get('proizvod/{id}',[ProizvodController::class,'show']);
     Route::post('logout', [AuthController::class, 'logout']);  
 });
 

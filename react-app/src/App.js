@@ -6,13 +6,14 @@ import Pocetna from './Komponente/Pocetna';
 import Login from './Komponente/Login';
 import Register from './Komponente/Register';
 import Proizvod from './Komponente/Proizvod';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Korpa from './Komponente/Korpa';
 import Kontakt from './Komponente/Kontakt';
 import Inbox from './Komponente/Inbox';
 import AdminPage from './Komponente/AdminPage';
+import Izmeni from './Komponente/Izmeni';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -24,6 +25,8 @@ function App() {
   const [sum, setSumPrice] = useState(0); 
   const [proizvodi,setP] = useState([ ]);
   const [poruke,setPoruke] = useState([]);
+  const [izmenaID, setIzmenaID] = useState(0); 
+
 
   useEffect(() => {
     const getRandomLists = async () => {
@@ -73,6 +76,7 @@ function App() {
     window.sessionStorage.setItem('auth_token',null); 
     window.sessionStorage.setItem('auth_name',null); 
     console.log(window.sessionStorage.getItem("auth_token"));
+    window.location.reload();
   }
   
   function refreshCart() {
@@ -156,7 +160,8 @@ function App() {
     });
 }
 
-function editPice(id){
+function postaviIDZaIzmenu(id){
+  setIzmenaID(id);
 }
   return (
 
@@ -171,7 +176,9 @@ function editPice(id){
             <Route path="/korpa" element={ <Korpa proizvodi={cartProducts} onAdd={addProduct} onRemove={removeProduct} sum={sum} ></Korpa>}></Route>
             <Route path="/kontakt" element={ <Kontakt></Kontakt>}></Route>
             <Route path="/admin/inbox" element={ <Inbox poruke={poruke} ></Inbox>}></Route>
-            <Route path="/admin" element={ <AdminPage proizvodi={proizvodi} deleteProizvode={deleteProizvode} ></AdminPage>}></Route>
+            <Route path="/admin" element={ <AdminPage proizvodi={proizvodi} deleteProizvode={deleteProizvode} setIzmeniID={postaviIDZaIzmenu} ></AdminPage>}></Route>
+            <Route path="/admin/izmeni" element={ <Izmeni id={izmenaID} ></Izmeni>}></Route>
+
         </Routes>
         <Footer></Footer>
         </BrowserRouter>
