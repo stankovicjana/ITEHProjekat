@@ -800,4 +800,11 @@ tr:nth-child(even) {
   #left{
       height: 200px;
   }
+
+  .tabelaPoruka{
+    margin: 100px;
+    margin-bottom: 600px;
+    margin-left: 350px;
+    margin-right: 350px;
+  }
 }
