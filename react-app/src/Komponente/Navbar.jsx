@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar({token}) {
-    function odjava(){ 
-    }
+function Navbar({token, odjava}) {
   return (
     <>
       <nav className='navbar'>
