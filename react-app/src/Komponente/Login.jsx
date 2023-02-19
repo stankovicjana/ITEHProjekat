@@ -34,6 +34,7 @@ function Login({addToken}) {
                             //token koji smo dobili od korisnika treba da sacuvamo u storag-u da bismo znali cemu taj korisnik ima pristup
                             window.sessionStorage.setItem("auth_token",res.data[0].token);
                             window.sessionStorage.setItem("auth_name",res.data[0].username);
+                            window.sessionStorage.setItem("auth_id",res.data[0].id);
                             addToken(res.data[0].token);
                             console.log(res.data[0].token);
                             if(res.data[0].role === 'admin')

@@ -26,14 +26,30 @@ function Navbar({token, odjava}) {
                 </>
                 :
                 <>
-                <li className="nav-item">
-                    <Link className="nav-links" to="/proizvodi">Ponuda  </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/korpa">Korpa</Link>
-                </li>
+                {window.sessionStorage.getItem("auth_name")=='Admin'  ? 
+                            <>
+                     <li className="nav-item">
+                        <Link className="nav-link" to="/admin">Admin  </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/admin/inbox">Inbox  </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/admin/analiza">Analiza  </Link>
+                    </li>
+                    </>
+                    :
+                    <>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/proizvodi">Ponuda  </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/korpa">Korpa  </Link>
+                    </li>
+                    </>
+                    }
                 <li className="nav-item active">
-                    <Link className="nav-links" to="/"  onClick={odjava}>Odjavi se  </Link>
+                    <Link className="nav-links" to="/" onClick={odjava}>Odjavi se  </Link>
                 </li>
                 </>
             } 

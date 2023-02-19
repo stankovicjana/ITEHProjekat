@@ -170,7 +170,7 @@ function postaviIDZaIzmenu(id){
       <BrowserRouter className="App">
       <NavBar token={token} odjava={handleLogout}></NavBar>
         <Routes>
-            <Route path="/" element={ <Pocetna></Pocetna>}></Route>
+            <Route path="/pocetna" element={ <Pocetna></Pocetna>}></Route>
             <Route path="/login" element={ <Login  addToken={addToken} ></Login>}></Route>    
             <Route path="/register" element={ <Register></Register>}></Route>
             <Route path="/proizvodi" element={ <Proizvod proizvodi={proizvodi} onAdd={addProduct} onRemove={removeProduct} ></Proizvod>}></Route>

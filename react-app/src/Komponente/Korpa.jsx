@@ -109,7 +109,8 @@ function Korpa({proizvodi,onAdd,onRemove,sum }) {
 
       doc.setFontSize(15);
       var today = new Date();
-      const footer = " \t\t\t\t\t\t\t\tIZNOS RACUNA: "+(sum).toFixed(2) + "["+oznakaValute+"]";
+      // const footer = " \t\t\t\t\t\t\t\tIZNOS RACUNA: "+(sum).toFixed(2) + "["+oznakaValute+"]";
+      const footer = " \t\t\t\t\t\t\t\tUKUPNO : "+(sum/koeficijentValute).toFixed(2) + "["+oznakaValute+"]";
       const title = "Datum izdavanja racuna: "+  today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()+footer;
       const headers = [["MODEL", "CENA["+oznakaValute+"]","KOLICINA","UKUPNO["+oznakaValute+"]"]];
 
@@ -151,6 +152,7 @@ function Korpa({proizvodi,onAdd,onRemove,sum }) {
     <br></br>
     <br></br>
     <div className="cenaDiv"><h3>Ukupan iznos racuna: {sum} RSD</h3></div>
+   
             <div>
               <br />
                 <button className="btn btn--pill btn--green" onClick={() => exportPDF()}>Generisi racun</button>
