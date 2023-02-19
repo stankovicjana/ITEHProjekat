@@ -1,0 +1,79 @@
+.main-container {
+    background: linear-gradient(transparent, black),
+      url("https://econsultancy.imgix.net/content/uploads/2019/01/21111315/nike-speed-shop.jpg?auto=compress,format&q=60&w=826&h=546") center center/cover no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+  }
+  
+  .main-container > h1 {
+    color: #fff;
+    font-size: 70px;
+    font-family: cursive;
+    margin-top: -100px;
+  }
+  
+  .main-container > p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 32px;
+    font-family: cursive;
+  }
+
+  .main-text {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+    background-color: rgb(242, 227, 255)
+  }
+  
+  .main-text > h1 {
+    color: black;
+    font-size: 80px;
+  }
+  
+  .main-text > h3 {
+    color: rgb(66, 3, 137);
+    font-size: 38px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Brush Script MT", cursive;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  
+  .main-text > p {
+    margin: 20px 100px;
+    color: black;
+    font-size: 22px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    text-align: justify;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+  }
+  
+  .main-clients {
+    height: 95vh;
+  }
+
+  .main-btns {
+    margin-top: 32px;
+  }
+  
+  .main-btns .btn {
+    margin: 6px;
+  }
