@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KorpaController;
 use App\Http\Controllers\ProizvodController;
 use App\Http\Controllers\StavkaKorpeController;
+use App\Http\Controllers\PorukaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,10 @@ use App\Http\Controllers\StavkaKorpeController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+Route::post('kontakt', [PorukaController::class, 'primiPoruku']); 
+
+Route::get('poruke',[PorukaController::class,'index']);  
 
 Route::resource('/korpe', KorpaController::class ) ;  
 Route::resource('/stavke', StavkaKorpeController::class ) ;  
