@@ -27,7 +27,7 @@ function Izmeni({id}) {
                 headers: {
                   token:
                     "Bearer " +
-                    ( window.sessionStorage.getItem("auth_token")),
+                    ( window.localStorage.getItem("auth_token")),
                 },
               }
             );
@@ -65,7 +65,7 @@ function Izmeni({id}) {
     function azuriraj(e){
         e.preventDefault();   
         axios
-            .put("http://127.0.0.1:8000/api/proizvod/"+id, productData,{headers:{'Authorization': `Bearer ${ window.sessionStorage.getItem('auth_token')}`} } )
+            .put("http://127.0.0.1:8000/api/proizvod/"+id, productData,{headers:{'Authorization': `Bearer ${ window.localStorage.getItem('auth_token')}`} } )
             .then((res)=>{  
                 console.log(res.data);
                  alert("USPESNO")

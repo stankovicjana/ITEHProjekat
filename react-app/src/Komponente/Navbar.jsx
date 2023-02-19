@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
+console.log(window.localStorage.getItem("auth_name"));
+
 function Navbar({token, odjava}) {
   return (
     <>
@@ -26,7 +28,7 @@ function Navbar({token, odjava}) {
                 </>
                 :
                 <>
-                {window.sessionStorage.getItem("auth_name")=='Admin'  ? 
+                {window.localStorage.getItem("auth_name")=='Admin'  ? 
                             <>
                      <li className="nav-item">
                         <Link className="nav-link" to="/admin">Admin  </Link>

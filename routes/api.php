@@ -1,6 +1,4 @@
 <?php
-
-
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,14 +20,13 @@ use App\Http\Controllers\PorukaController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
-
 Route::post('kontakt', [PorukaController::class, 'primiPoruku']); 
-
 Route::get('poruke',[PorukaController::class,'index']);  
 
-Route::resource('/korpe', KorpaController::class ) ;  
 Route::resource('/stavke', StavkaKorpeController::class ) ;  
 Route::get('proizvod',[ProizvodController::class,'index']);
+Route::resource('stavkeKorpe', StavkaKorpeController::class ) ;
+Route::resource('/korpe', KorpaController::class ) ;  
 Route::post('proizvod',[ProizvodController::class,'store']);
 Route::put('proizvod/{id}',[ProizvodController::class,'update']);
 Route::delete('proizvod/{id}',[ProizvodController::class,'destroy']);
@@ -38,8 +35,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {  //ulogovani kori
     Route::get('/profile', function (Request $request) {  
         return auth()->user();
     });
-    Route::resource('stavkeKorpe', StavkaKorpeController::class ) ;
+
     Route::post('logout', [AuthController::class, 'logout']);  
+
 });
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){  
@@ -47,5 +45,5 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
     Route::get('/check', function(){
         return response()->json(['message'=>'Admin ulogovan'],200);
     });
-
+ 
 });

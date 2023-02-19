@@ -31,10 +31,12 @@ function Login({addToken}) {
                     .post("http://127.0.0.1:8000/api/login", userData )
                     .then((res)=>{ //ako se uspesno izvrsi logovanje uci ce u funkciju (zbog ovog then)
                         if(res.data.success===true){
+                            console.log(res.data)
                             //token koji smo dobili od korisnika treba da sacuvamo u storag-u da bismo znali cemu taj korisnik ima pristup
-                            window.sessionStorage.setItem("auth_token",res.data[0].token);
-                            window.sessionStorage.setItem("auth_name",res.data[0].username);
-                            window.sessionStorage.setItem("auth_id",res.data[0].id);
+                            window.localStorage.setItem("auth_token",res.data[0].token);
+                            window.localStorage.setItem("auth_name",res.data[0].username);
+                            window.localStorage.setItem("auth_id",res.data[0].id);
+                            window.localStorage.setItem("is_admin", res.data[0].role);
                             addToken(res.data[0].token);
                             console.log(res.data[0].token);
                             if(res.data[0].role === 'admin')
@@ -42,7 +44,7 @@ function Login({addToken}) {
                                  navigate("/admin")
                             }
                             else{
-                                navigate("/proizvodi"); //ovde cemo upisati na koju stranicu treba da ode ulogovani korisnik
+                                navigate("/"); //ovde cemo upisati na koju stranicu treba da ode ulogovani korisnik
                             }
                         }else{
                             alert("NEUSPESNO");

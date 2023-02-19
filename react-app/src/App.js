@@ -6,7 +6,7 @@ import Pocetna from './Komponente/Pocetna';
 import Login from './Komponente/Login';
 import Register from './Komponente/Register';
 import Proizvod from './Komponente/Proizvod';
-import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useNavigate, redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Korpa from './Komponente/Korpa';
@@ -37,7 +37,7 @@ function App() {
             headers: {
               token:
                 "Bearer " +
-                ( window.sessionStorage.getItem("auth_token")),
+                ( window.localStorage.getItem("auth_token")),
             },
           }
         );
@@ -57,7 +57,7 @@ function App() {
             headers: {
               token:
                 "Bearer " +
-                ( window.sessionStorage.getItem("auth_token")),
+                ( window.localStorage.getItem("auth_token")),
             },
           }
         );
@@ -74,9 +74,9 @@ function App() {
   }
 
   function handleLogout(){ 
-    window.sessionStorage.setItem('auth_token',null); 
-    window.sessionStorage.setItem('auth_name',null); 
-    console.log(window.sessionStorage.getItem("auth_token"));
+    window.localStorage.setItem('auth_token',null); 
+    window.localStorage.setItem('auth_name',null); 
+    console.log(window.localStorage.getItem("auth_token"));
     window.location.reload();
   }
   
@@ -136,12 +136,12 @@ function App() {
   function deleteProizvode(id){
 
     axios
-    .delete("http://127.0.0.1:8000/api/proizvod/"+id,{headers:{'Authorization': `Bearer ${ window.sessionStorage.getItem('auth_token')}`} } )
+    .delete("http://127.0.0.1:8000/api/proizvod/"+id,{headers:{'Authorization': `Bearer ${ window.localStorage.getItem('auth_token')}`} } )
     .then((res)=>{  
         console.log(res.data);
-        const token = window.sessionStorage.getItem('auth_token');
+        const token = window.localStorage.getItem('auth_token');
         window.location. reload();
-        window.sessionStorage.set('auth_token',token);
+        window.localStorage.set('auth_token',token);
 
     })
     .catch(function (error) {
@@ -164,23 +164,32 @@ function App() {
 function postaviIDZaIzmenu(id){
   setIzmenaID(id);
 }
+const routerGuard = () => {
+  const token = window.localStorage.getItem("is_admin");
+  if(token=="admin")
+  return true;
+  else return false;
+   // if token exist, return true, else return false
+}
   return (
 
     <div  >
       <BrowserRouter className="App">
       <NavBar token={token} odjava={handleLogout}></NavBar>
         <Routes>
-            <Route path="/pocetna" element={ <Pocetna></Pocetna>}></Route>
+            <Route path="/" element={ <Pocetna></Pocetna>}></Route>
             <Route path="/login" element={ <Login  addToken={addToken} ></Login>}></Route>    
             <Route path="/register" element={ <Register></Register>}></Route>
             <Route path="/proizvodi" element={ <Proizvod proizvodi={proizvodi} onAdd={addProduct} onRemove={removeProduct} ></Proizvod>}></Route>
             <Route path="/korpa" element={ <Korpa proizvodi={cartProducts} onAdd={addProduct} onRemove={removeProduct} sum={sum} ></Korpa>}></Route>
             <Route path="/kontakt" element={ <Kontakt></Kontakt>}></Route>
-            <Route path="/admin/inbox" element={ <Inbox poruke={poruke} ></Inbox>}></Route>
-            <Route path="/admin" element={ <AdminPage proizvodi={proizvodi} deleteProizvode={deleteProizvode} setIzmeniID={postaviIDZaIzmenu} ></AdminPage>}></Route>
-            <Route path="/admin/izmeni" element={ <Izmeni id={izmenaID} ></Izmeni>}></Route>
-            <Route path="/admin/analiza" element={ <Analiza proizvodi={proizvodi} ></Analiza>}></Route>
+            <Route path="/admin" element={routerGuard() ? <AdminPage proizvodi={proizvodi} deleteProizvode={deleteProizvode} setIzmeniID={postaviIDZaIzmenu} > </AdminPage>: <Navigate replace to="/login" />} />
+            <Route path="/admin/izmeni" element={routerGuard() ? <Izmeni id={izmenaID} ></Izmeni> : <Navigate replace to="/login" />} />
+            <Route path="/admin/inbox" element={routerGuard() ? <Inbox poruke={poruke} ></Inbox> : <Navigate replace to="/login" />} />
+            <Route path="/admin/analiza" element={routerGuard() ? <Analiza proizvodi={proizvodi} ></Analiza> : <Navigate replace to="/login" />} />
 
+ 
+          
         </Routes>
         <Footer></Footer>
         </BrowserRouter>
