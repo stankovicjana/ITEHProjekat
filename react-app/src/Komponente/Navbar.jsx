@@ -31,7 +31,9 @@ function Navbar({token}) {
                 <li className="nav-item">
                     <Link className="nav-links" to="/proizvodi">Ponuda  </Link>
                 </li>
-
+                <li className="nav-item">
+                <Link className="nav-links" to="/korpa">Korpa  </Link>
+                </li>
                 <li className="nav-item active">
                     <Link className="nav-links" to="/"  onClick={odjava}>Odjavi se  </Link>
                 </li>

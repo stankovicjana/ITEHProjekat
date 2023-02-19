@@ -9,6 +9,7 @@ import Proizvod from './Komponente/Proizvod';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Korpa from './Komponente/Korpa';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -73,6 +74,7 @@ function App() {
       if (p.id === id) {
         p.kolicina++;
         setSumPrice(sum+p.cena);
+        console.log(sum);
       }
     });
     refreshCart();
@@ -106,7 +108,7 @@ function App() {
             <Route path="/login" element={ <Login  addToken={addToken} ></Login>}></Route>    
             <Route path="/register" element={ <Register></Register>}></Route>
             <Route path="/proizvodi" element={ <Proizvod proizvodi={proizvodi} onAdd={addProduct} onRemove={removeProduct} ></Proizvod>}></Route>
-
+            <Route path="/korpa" element={ <Korpa proizvodi={cartProducts} onAdd={addProduct} onRemove={removeProduct} ></Korpa>}></Route>
         </Routes>
         <Footer></Footer>
         </BrowserRouter>
