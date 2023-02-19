@@ -17,7 +17,8 @@ const Pocetna = () => {
 
 
     return (
-
+    
+  
       <div> 
         <Slide easing="ease">
           <div className="each-slide">

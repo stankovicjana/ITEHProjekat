@@ -1,3 +1,4 @@
+/*ovo je za one recenice u login/register formi I am new here ili I already have an account*/
 .tekstForme{
   text-decoration: none;
   color: white;
@@ -169,7 +170,7 @@ h6 {
   font-size: 13px;
 }
 
-
+ 
 
 
 /* ==========================================================================
@@ -248,11 +249,11 @@ h6 {
 }
 
 .btn--green {
-  background: #f0e007;
+  background: #025cee;
 }
 
 .btn--green:hover {
-  background: #e0dd0f;
+  background: #00c0a9;
 }
 
 /* ==========================================================================
@@ -492,7 +493,7 @@ input {
 }
 
 .card-3 .card-heading {
-  background: url("https://www.realsimple.com/thmb/JHn5-dER8LyFrumHZuRjaYd7h_8=/1260x1500/filters:fill(auto,1)/big-batch-cocktails-minty-moscow-mule-547c58d091324168af474f1eb955a0b0.jpg") top left/cover no-repeat;
+  background: url("http://retaildesignblog.net/wp-content/uploads/2012/10/Samsung-shop-Selfridges-Dalziel-and-Pow-London.jpg") top left/cover no-repeat;
   display: table-cell;
   width: 50%;
 }

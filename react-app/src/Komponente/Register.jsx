@@ -52,13 +52,14 @@ function Register() {
                   });
     }
     return (
-        <div className='register'>
-            <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
-                <div className="wrapper wrapper--w780">
-                    <div className="card card-3">
-                        <div className="card-heading"></div>
-                            <div className="card-body">
-                                <h2 className="title">Register</h2>
+        <div id='kontakt' >
+            <div id='container1'>
+                <div id='contact-box'>
+                    <div id="left">
+
+                    </div>
+                    <div id="right">
+                                <h2  >Register</h2>
                                 <form onSubmit={handleRegister}>
                                     <div className="input-group">
                                         <input className="input--style-3" type="text" placeholder="Name" name="name" required onInput={handleInput}/>
@@ -88,7 +89,6 @@ function Register() {
                         </div>
                     </div>
                 </div>
-            </div>
 
     );
 }
