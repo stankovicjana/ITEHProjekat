@@ -38,7 +38,10 @@ function Navbar({token}) {
                     <Link className="nav-links" to="/"  onClick={odjava}>Odjavi se  </Link>
                 </li>
                 </>
-            }   
+            } 
+            <li className="nav-item">
+                    <Link className="nav-links" to="/kontakt"  >Kontakt  </Link>
+            </li>  
           </ul>
         </div>
       </nav>
