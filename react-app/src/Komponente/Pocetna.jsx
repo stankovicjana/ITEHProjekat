@@ -12,48 +12,36 @@ const slideImages = [
 ];
 
 const Pocetna = () => {
-
-
-
-
-
     return (
-    
-      
-  
       <div> 
-        <div className='main-container'>
-      <image url='https://econsultancy.imgix.net/content/uploads/2019/01/21111315/nike-speed-shop.jpg?auto=compress,format&q=60&w=826&h=546'/>
-      <h1>DOBRODOŠLI U SVET TEHNIKE</h1>
-      <p>Kupite tehniku, najbrze, najbolje, najpovoljnije!</p>
-    </div>
-    <div className='main-text'>
-    <h1>KO SMO MI</h1>
-    <h3>Vasa omiljena prodavnica. Gde je sve dostupno na jednom mestu.</h3>
-      <p>
-      Kupite najbolju tehniku. 
-      </p>
-      <p>
-      Sacuvajte svoje vreme i novac.
-      </p>
-    </div>
-        <Slide easing="ease">
-          <div className="each-slide">
-            <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
-
-            </div>
+          <div className='main-container'>
+              <img url='https://econsultancy.imgix.net/content/uploads/2019/01/21111315/nike-speed-shop.jpg?auto=compress,format&q=60&w=826&h=546'/>
+              <h1>DOBRODOŠLI U SVET TEHNIKE</h1>
+              <p>Kupite tehniku, najbrze, najbolje, najpovoljnije!</p>
           </div>
-          <div className="each-slide">
-            <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
-
-            </div>
+          <div className='main-text'>
+              <h1>KO SMO MI</h1>
+              <h3>Vasa omiljena prodavnica. Gde je sve dostupno na jednom mestu.</h3>
+              <p>Kupite najbolju tehniku.</p>
+              <p>Sacuvajte svoje vreme i novac.</p>
           </div>
-          <div className="each-slide">
-            <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
+          <Slide easing="ease">
+            <div className="each-slide">
+              <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
 
+              </div>
             </div>
-          </div>
-        </Slide>
+            <div className="each-slide">
+              <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
+
+              </div>
+            </div>
+            <div className="each-slide">
+              <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
+
+              </div>
+            </div>
+          </Slide>
       </div>
     )
 };

@@ -19,7 +19,7 @@ function ProizvodKartica({product,onAdd,onRemove}) {
         <br /><br /> <b>  Cena:</b> {product.cena} RSD 
         </h6>
         <br />
-        <row>
+        <div>
          <button
                   className="btn"
                   onClick={() => { onAdd( product.id); alert("Proizvod je dodat u korpu!");}}
@@ -35,7 +35,7 @@ function ProizvodKartica({product,onAdd,onRemove}) {
                 <BsDashLg />
                 <p>Obrisi proizvod</p>
             </button>
-            </row>
+            </div>
     </div> 
 </div>
   )

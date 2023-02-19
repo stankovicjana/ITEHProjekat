@@ -17,7 +17,6 @@ function Kontakt() {
         newPorukaData[e.target.name]=e.target.value;
 
         setPorukaData(newPorukaData);  
-        console.log(newPorukaData);
     }
 
     let navigate = useNavigate();
@@ -53,7 +52,7 @@ function Kontakt() {
                     </div>
                     <div id="right">
                         <form onSubmit={handleSend}>
-                            <h2>Contact us</h2>
+                            <h2>Kontaktirajte nas</h2>
                             <input type="text" className='field' placeholder='Vase ime'  name ='ime' onInput={handleInput}/>
                             <input type="email" className='field' placeholder='Vas e-mail' name = 'email' onInput={handleInput} />
                             <textarea className='field area' placeholder='Poruka' name="poruka" onInput={handleInput}></textarea>

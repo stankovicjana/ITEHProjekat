@@ -57,11 +57,7 @@ function Korpa({proizvodi,onAdd,onRemove,sum }) {
 
       //cuvacemo samo stavke korpe, za id korpe cemo uzeti id korisnika (jedna korpa za jednog usera)
       proizvodi.map(p=>{
-        console.log(p)
-        console.log("http://127.0.0.1:8000/api/stavke/?korpa_id="+user_id+"&proizvod_id="+p.id+"&kolicina="+p.kolicina+"&user_id="+user_id)
-
-        axios
-        .post("http://127.0.0.1:8000/api/stavke/?korpa_id="+user_id+"&proizvod_id="+p.id+"&kolicina="+p.kolicina+"&user_id="+user_id,{headers:{'Authorization': `Bearer ${ window.sessionStorage.getItem('auth_token')}`} } )
+        axios.post("http://127.0.0.1:8000/api/stavke/?korpa_id="+user_id+"&proizvod_id="+p.id+"&kolicina="+p.kolicina+"&user_id="+user_id,{headers:{'Authorization': `Bearer ${ window.sessionStorage.getItem('auth_token')}`} } )
         .then((res)=>{  
             console.log(res.data);
              alert("Uspesno sacuvano")

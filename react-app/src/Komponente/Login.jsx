@@ -15,7 +15,7 @@ function Login({addToken}) {
         let newUserData = userData; //postavimo usera da mu ime bude "" i da mu pass bude ""
         //e.target.value; predstavlja vrednost koju korisnik unese u polje
         newUserData[e.target.name]=e.target.value; //newUserData['email']=e.target.value;
-        console.log(newUserData);//probaj
+        // console.log(newUserData);//probaj
         setUserData(newUserData); //podatke koje smo pokupili iz forme sada upisujemo u polje userData
         //te podatke sada treba da saljemo laravelu, ali to radimo kada korisnik submituje formu
     }
@@ -30,11 +30,7 @@ function Login({addToken}) {
                 axios
                     .post("http://127.0.0.1:8000/api/login", userData )
                     .then((res)=>{ //ako se uspesno izvrsi logovanje uci ce u funkciju (zbog ovog then)
-                        console.log(res.data[0]);
                         if(res.data.success===true){
-                           // alert("USPESNO");  
-
-
                             //token koji smo dobili od korisnika treba da sacuvamo u storag-u da bismo znali cemu taj korisnik ima pristup
                             window.sessionStorage.setItem("auth_token",res.data[0].token);
                             window.sessionStorage.setItem("auth_name",res.data[0].username);
@@ -47,9 +43,6 @@ function Login({addToken}) {
                             else{
                                 navigate("/proizvodi"); //ovde cemo upisati na koju stranicu treba da ode ulogovani korisnik
                             }
-
-
-
                         }else{
                             alert("NEUSPESNO");
                         }
@@ -82,7 +75,7 @@ function Login({addToken}) {
                                     <input className="input--style-3" type="password" placeholder="Password" name="password"  onInput={handleInput}/>
                                 </div>
                                 <div className="p-t-10">
-                                    <button class="btn" type="submit" id="login" name="login">Prijavi se</button>
+                                    <button className="btn" type="submit" id="login" name="login">Prijavi se</button>
                                 </div>
                                 <br/><br/>
                                 <p><a href="/register"  className='tekstForme'>Nemas profil? Napravi ga!</a></p>

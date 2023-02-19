@@ -69,7 +69,6 @@ function App() {
   }
 
   function handleLogout(){ 
-    console.log("USAO")
     window.sessionStorage.setItem('auth_token',null); 
     window.sessionStorage.setItem('auth_name',null); 
     console.log(window.sessionStorage.getItem("auth_token"));
@@ -78,11 +77,11 @@ function App() {
   function refreshCart() {
     let u_korpi = proizvodi.filter((p) => p.kolicina > 0);
     setCartProducts(u_korpi);
-    var suma=0;
+
+    var suma=u_korpi[0].cena;
     cartProducts.forEach((p)=>{
       suma+=p.cena*p.kolicina;
     })
-    console.log(suma);
     setSumPrice(suma);
   }
   function jeUKorpi(id){
@@ -103,7 +102,7 @@ function App() {
     proizvodi.forEach((p) => {
       if (p.id === id) {
         p.kolicina++;
-        // setSumPrice(sum+p.cena);
+        setSumPrice(sum+p.cena);
         console.log(sum);
       }
     });

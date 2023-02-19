@@ -78,7 +78,7 @@ function Footer() {
           </form>
         </div>
       </section>
-      <div class='website-rights'>PRODAVNICA TEHNIKE © 2023</div>
+      <div className='website-rights'>PRODAVNICA TEHNIKE © 2023</div>
     </div>
       
   );
