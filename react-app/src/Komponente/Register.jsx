@@ -80,10 +80,10 @@ function Register() {
                                         <input className="input--style-3" type="password" placeholder="Password" name="password"required onInput={handleInput}/>
                                     </div>
                                     <div className="p-t-10">
-                                        <button className="btn btn--pill btn--green" type="submit" id="register" name="register" >Submit</button>
+                                        <button className="btn btn--pill btn--green" type="submit" id="register" name="register" >Registruj se</button>
                                     </div>
                                     <br/><br/>
-                                    <p><a href="/login"  className='tekstForme'>I already have an account!</a></p>
+                                    <p><a href="/login"  className='tekstForme'>Vec imas nalog? Uloguj se ovde!</a></p>
                                 </form>
                             </div>
                         </div>

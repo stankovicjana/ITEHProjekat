@@ -5,7 +5,7 @@
 .btn {
   padding: 8px 20px;
   border-radius: 2px;
-  outline: white solid 1px;
+  outline: rgb(41, 0, 107) solid 2px;
   border: none;
   cursor: pointer;
 }

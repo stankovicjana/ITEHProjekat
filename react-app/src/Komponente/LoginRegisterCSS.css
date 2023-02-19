@@ -1,12 +1,12 @@
 /*ovo je za one recenice u login/register formi I am new here ili I already have an account*/
 .tekstForme{
   text-decoration: none;
-  color: white;
+  color: rgb(48, 2, 74);
 
 }
 .tekstForme:hover{
   text-decoration: none;
-  color: white;
+  color: rgb(174, 2, 248);
 
 }
 

@@ -11,45 +11,46 @@ const axiosInstance = axios.create({
 function Korpa({proizvodi,onAdd,onRemove,sum }) {
 
 
-//javni web servis da dobijemo koeficijent RSD_EUR
-const [RSD_EUR, setRSDEUR] = useState([]);
-useEffect(() => {
-    axios({
-      method: "GET",
-      url:
-        "https://api.currencyapi.com/v3/latest?apikey=zbICuoNBacI03bcETlGc6Pm9LJS4x5c5lgmNTBj4&currencies=RSD&base_currency=EUR",
+// //javni web servis da dobijemo koeficijent RSD_EUR
+// const [RSD_EUR, setRSDEUR] = useState([]);
+// useEffect(() => {
+//     axios({
+//       method: "GET",
+//       url:
+//         "https://api.currencyapi.com/v3/latest?apikey=zbICuoNBacI03bcETlGc6Pm9LJS4x5c5lgmNTBj4&currencies=RSD&base_currency=EUR",
 
-    })
-      .then((response) => {
-        console.log(response.data.data['RSD'].value);
-        setRSDEUR(response.data.data['RSD'].value);
+//     })
+//       .then((response) => {
+//         console.log(response.data.data['RSD'].value);
+//         setRSDEUR(response.data.data['RSD'].value);
 
-      })
-      .catch((error) => {
-        console.log(error);
-    });
-}, []);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//     });
+// }, []);
 
 
 
-//javni web servis da dobijemo koeficijent RSD_USD
-const [RSD_USD, setRSDUSD] = useState([]);
-useEffect(() => {
-  axios({
-    method: "GET",
-    url:
-      "https://api.currencyapi.com/v3/latest?apikey=zbICuoNBacI03bcETlGc6Pm9LJS4x5c5lgmNTBj4&currencies=RSD&base_currency=USD",
+// //javni web servis da dobijemo koeficijent RSD_USD
+// const [RSD_USD, setRSDUSD] = useState([]);
+// useEffect(() => {
+//   axios({
+//     method: "GET",
+//     url:
+//       "https://api.currencyapi.com/v3/latest?apikey=zbICuoNBacI03bcETlGc6Pm9LJS4x5c5lgmNTBj4&currencies=RSD&base_currency=USD",
 
-  })
-    .then((response) => {
-      console.log(response.data.data['RSD'].value);
-      setRSDUSD(response.data.data['RSD'].value);
+//   })
+//     .then((response) => {
+//       console.log(response.data.data['RSD'].value);
+//       setRSDUSD(response.data.data['RSD'].value);
 
-    })
-    .catch((error) => {
-      console.log(error);
-  });
-}, []);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//   });
+// }, []);
+
   var navigate = useNavigate();
   function sacuvajKorpuUBazi(){
     const user_id=window.sessionStorage.getItem('auth_id');
@@ -90,18 +91,18 @@ useEffect(() => {
   function exportPDF() {
 
     var valute = document.getElementById('currency');
-    var trenutnaValuta  = valute.selectedIndex 
+    var trenutnaValuta  = "RSD"
     var koeficijentValute=1;
     var oznakaValute="RSD";
-      if(trenutnaValuta===1)//EUR
-      {
-        koeficijentValute=RSD_EUR;
-        oznakaValute="EUR";
-      }else{ //USD
-        koeficijentValute=RSD_USD;
-        oznakaValute="USD";
+      // if(trenutnaValuta===1)//EUR
+      // {
+      //   koeficijentValute=RSD_EUR;
+      //   oznakaValute="EUR";
+      // }else{ //USD
+      //   koeficijentValute=RSD_USD;
+      //   oznakaValute="USD";
 
-      }
+      // }
       sacuvajKorpuUBazi();
       const unit = "pt";
       const size = "A4"; // Use A1, A2, A3 or A4
@@ -112,11 +113,11 @@ useEffect(() => {
 
       doc.setFontSize(15);
       var today = new Date();
-      const footer = " \t\t\t\t\t\t\t\tUKUPNO ZA UPLATU: "+(sum/koeficijentValute).toFixed(2) + "["+oznakaValute+"]";
-      const title = "Racun na dan: "+  today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()+footer;
+      const footer = " \t\t\t\t\t\t\t\tIZNOS RACUNA: "+(sum).toFixed(2) + "["+oznakaValute+"]";
+      const title = "Datum izdavanja racuna: "+  today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()+footer;
       const headers = [["MODEL", "CENA["+oznakaValute+"]","KOLICINA","UKUPNO["+oznakaValute+"]"]];
 
-      const data = proizvodi.map(elt=> [elt.naziv, (elt.cena/koeficijentValute).toFixed(2), elt.kolicina, (elt.cena*elt.kolicina/koeficijentValute).toFixed(2)]);
+      const data = proizvodi.map(elt=> [elt.naziv, (elt.cena).toFixed(2), elt.kolicina, (elt.cena*elt.kolicina/koeficijentValute).toFixed(2)]);
 
       let content = {
         startY: 50,
@@ -134,16 +135,15 @@ useEffect(() => {
     <div> 
         <div className='korpa'>
 
-        <br /><br /><br />
-            <label htmlFor="currency">Izaberite valutu u kojoj zelite racun</label>
+            {/* <label htmlFor="currency">Izaberite valutu u kojoj zelite racun</label> */}
 
-            <select name="currency" id="currency"  >
+            {/* <select name="currency" id="currency"  >
                 <option value="RSD" >RSD</option>
                 <option value="EUR" >EUR</option>
                 <option value="USD" >USD</option>
 
-            </select>
-            <br /><br /><br />
+            </select> */}
+            {/* <br /><br /><br /> */}
             <table>
                 <thead>
                     <tr><th>ID</th><th>NAZIV</th><th>CENA</th><th>KOLICINA</th><th>DODAJ</th><th>IZBACI</th></tr>
@@ -154,8 +154,9 @@ useEffect(() => {
             </table>
     <br></br>
     <br></br>
-    <div className="cenaDiv"><h3>Ukupna cena proizvoda: {sum} RSD</h3></div>
+    <div className="cenaDiv"><h3>Ukupan iznos racuna: {sum} RSD</h3></div>
             <div>
+              <br />
                 <button className="btn btn--pill btn--green" onClick={() => exportPDF()}>Generisi racun</button>
             </div>  
 

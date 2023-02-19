@@ -110,7 +110,7 @@
  
 .tekstForme{
   text-decoration: none;
-  color: white;
+  color: rgb(29, 1, 63);
 
 }
 .tekstForme:hover{
@@ -332,12 +332,12 @@ h6 {
    #BUTTON
    ========================================================================== */
 .btn {
-  display: inline-block;
+  display: grid;
   line-height: 40px;
   padding: 0 33px;
   font-family: Poppins, Arial, "Helvetica Neue", sans-serif;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -454,35 +454,35 @@ input {
 .input--style-3 {
   padding: 5px 0;
   font-size: 16px;
-  color: #ccc;
+  color: #0a0000;
   background: transparent;
 }
 
 .input--style-3::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #ccc;
+  color: #000000;
 }
 
 .input--style-3:-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #ccc;
+  color: #000000;
   opacity: 1;
 }
 
 .input--style-3::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #ccc;
+  color: #000000;
   opacity: 1;
 }
 
 .input--style-3:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #ccc;
+  color: #000000;
 }
 
 .input--style-3:-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #ccc;
+  color: #000000;
 }
 
 /* ==========================================================================
@@ -586,7 +586,7 @@ input {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: #fff;
+  background: #ffffff;
 }
 
 .card-3 {
@@ -644,15 +644,21 @@ body{
  
 .card {
   margin: 10px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 30px rgb(171, 116, 253);
   overflow: hidden;
   width: 300px;
 }
+
+.card-header {
+  width: 100%;
+  object-fit: cover;
+  background-color: white;
+}
+
 .card-header img {
   width: 100%;
- 
   object-fit: cover;
 }
 .card-body {
@@ -662,10 +668,12 @@ body{
   align-items: flex-start;
   padding: 20px;
   min-height: 250px;
-  
+  background-color: #c3bdd368;
 }
 .naslovKartice{
   font-size:35px;
+  color:#41018f;
+  align-self: center;
 }
 
 .opisProizvoda{
@@ -723,10 +731,10 @@ tr:nth-child(even) {
 }
  
 #kontakt{
-
+  background-color: rgb(242, 235, 251);
   display: flex;
   flex-direction: column;
-  height: 88vh;
+  height: 100vh;
 }
 #container1{
   display: flex;
@@ -734,7 +742,6 @@ tr:nth-child(even) {
   align-items: center;
   width: 100%;
   height: 100%;
-
 }
 
 #contact-box{
@@ -745,7 +752,7 @@ tr:nth-child(even) {
   align-items: center;
   text-align: center;
   background-color: #fff;
-  box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+  box-shadow: 0px 0px 59px 19px rgba(78, 23, 207, 0.785);
 }
 #left{
   height: 100%;
@@ -754,6 +761,7 @@ tr:nth-child(even) {
 }
 #right{
   padding: 25px 40px;
+  background-color: #e2e7ff;
 }
 #right h2{
   position:relative;
@@ -807,4 +815,5 @@ tr:nth-child(even) {
     margin-left: 350px;
     margin-right: 350px;
   }
+
 }

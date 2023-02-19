@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ProizvodKartica from './ProizvodKartica'
+import '../App.css'
 
 function Proizvod({proizvodi,onAdd,onRemove }) {
   const [sort, setSort] = useState(true);
@@ -13,8 +14,11 @@ function Proizvod({proizvodi,onAdd,onRemove }) {
   }
   return (
     <div>
+      <br />
         <button className="sortbtn btn" onClick={sortAsc}>Sortiraj rastuće</button>
         <button className="sortbtn btn" onClick={sortDesc}>Sortiraj opadajuće</button>
+        <br />
+        <br />
         <div className='sviProizvodi'>
 
             {sort===true?
