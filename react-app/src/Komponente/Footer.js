@@ -1,45 +1,87 @@
 import React from 'react';
+import './Footer.css';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-const Footer = () => {
+import { Button } from './Button';
+
+//useState hook
+function Footer() {
+    const [buttonClick, setButtonClick] = useState('');
+    const [buttonClick2, setButtonClick2] = useState('');
   
-const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-const title = "Lorem Ipsum";
+    const onClick = () => {
+      if(buttonClick != '') {
+        setButtonClick('');
+        setTimeout(() => {
+          alert('Hvala na prijavi na naš newsletter!');
+        }, 10);
+      }
+    }
+  
+    const onClick2 = () => {
+      if(buttonClick2 != '') {
+        setButtonClick2('');
+        setTimeout(() => {
+          alert('Hvala Vam! Potrudićemo se da usvojimo predloge i pohvale!');
+        }, 10);
+      }
+    }
+  
+    const onChange = (e) => {
+      setButtonClick(e.target.value);
+    }
+    const onChange2 = (e) => {
+      setButtonClick2(e.target.value);
+    }
 
-const columns = [{
-title: "Column 1",
-resources: [{
-name: "Item 1",
-link: "/item1"
-},{
-name: "Item 2",
-link: "/item2"
-},{
-name: "Item 3",
-link: "/item3"
-},{
-name: "Item 4",
-link: "/item4"
-}]
-},{
-title: "Column 2",
-resources: [{
-name: "Item 5",
-link: "/item5"
-},{
-name: "Item 6",
-link: "/item6"
-}]
-},{
-title: "Column 3",
-resources: [{
-name: "Item 7",
-link: "/item7"
-},{
-name: "Item 8",
-link: "/item8"
-}]
-}];
 
+  return (
+    <div className='footer-container'>
+      <section className='footer-subscription'>
+        <p className='footer-subscription-heading'>
+          Prijavite se da biste dobijali vaučere sa popustom na opremu:
+        </p>
+        <p className='footer-subscription-text'>
+          Možete se odjaviti kad god budete želeli.
+        </p>
+        <div className='input-areas'>
+          <form>
+            <input
+              className='footer-input'
+              name='email'
+              type='email'
+              placeholder='Email'
+              value={buttonClick}
+              onChange={onChange}
+            />
+              <Button buttonStyle='btn--outline' onClick={onClick}>Prijavi se</Button>
+          </form>
+        </div>
+      </section>
+      <section className='footer-subscription'>
+        <p className='footer-subscription-text'>
+          Ostavite nam sugestiju/komentar!
+        </p>
+        <div className='input-areas'>
+          <form>
+            <textarea
+              className='footer-input'
+              name='comment'
+              type='comment'
+              placeholder='Komentar'
+              value={buttonClick2}
+              onChange={onChange2}
+            />
+            <br></br>
+              <Button buttonStyle='btn--outline' onClick={onClick2}>Pošalji komentar</Button>
+          </form>
+        </div>
+      </section>
+      <div class='website-rights'>PRODAVNICA TEHNIKE © 2023</div>
+    </div>
+      
+  );
 }
 
 export default Footer;
