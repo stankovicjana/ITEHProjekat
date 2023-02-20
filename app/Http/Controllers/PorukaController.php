@@ -31,7 +31,7 @@ class PorukaController extends Controller
         );
 
         if ($validator->fails()) 
-            return response()->json(['success'=>'aaa']);
+            return response()->json(['success'=>'Nije primljena poruka']);
 
         $poruka = Poruka::create([
             'ime' => $request->ime, 

@@ -22,10 +22,8 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::post('kontakt', [PorukaController::class, 'primiPoruku']); 
 Route::get('poruke',[PorukaController::class,'index']);  
-
 Route::resource('/stavke', StavkaKorpeController::class ) ;  
 Route::get('proizvod',[ProizvodController::class,'index']);
-Route::resource('stavkeKorpe', StavkaKorpeController::class ) ;
 Route::resource('/korpe', KorpaController::class ) ;  
 Route::post('proizvod',[ProizvodController::class,'store']);
 Route::put('proizvod/{id}',[ProizvodController::class,'update']);

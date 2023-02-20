@@ -75,7 +75,7 @@ function Login({addToken}) {
                                 </div>
                                 
                                 <div className="input-group">
-                                    <input className="input--style-3" type="password" placeholder="Password" name="password"  onInput={handleInput}/>
+                                    <input className="input--style-3" type="password" placeholder="Šifra" name="password"  onInput={handleInput}/>
                                 </div>
                                 <div className="p-t-10">
                                     <button className="btn" type="submit" id="login" name="login">Prijavi se</button>

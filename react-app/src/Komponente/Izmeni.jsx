@@ -12,7 +12,7 @@ function Izmeni({id}) {
     const [productData,setProductData]=useState({
         naziv:"",
         proizvodjac:'',
-        cena:10000,
+        cena:'',
         kolicina:0, 
         image:'', 
         vrsta:4,

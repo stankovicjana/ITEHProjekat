@@ -61,10 +61,10 @@ function Register() {
                                 <h2  >Register</h2>
                                 <form onSubmit={handleRegister}>
                                     <div className="input-group">
-                                        <input className="input--style-3" type="text" placeholder="Name" name="name" required onInput={handleInput}/>
+                                        <input className="input--style-3" type="text" placeholder="Ime" name="name" required onInput={handleInput}/>
                                     </div>
                                     <div className="input-group">
-                                        <input className="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthdate"required onInput={handleInput}/>
+                                        <input className="input--style-3 js-datepicker" type="text" placeholder="Datum rodjenja" name="birthdate"required onInput={handleInput}/>
                                         <i className="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
 
@@ -73,10 +73,10 @@ function Register() {
                                     </div>
 
                                     <div className="input-group">
-                                        <input className="input--style-3" type="text" placeholder="Phone" name="phone"required onInput={handleInput}/>
+                                        <input className="input--style-3" type="text" placeholder="Telefon" name="phone"required onInput={handleInput}/>
                                     </div>
                                     <div className="input-group">
-                                        <input className="input--style-3" type="password" placeholder="Password" name="password"required onInput={handleInput}/>
+                                        <input className="input--style-3" type="password" placeholder="Šifra" name="password"required onInput={handleInput}/>
                                     </div>
                                     <div className="p-t-10">
                                         <button className="btn btn--pill btn--green" type="submit" id="register" name="register" >Registruj se</button>

@@ -74,6 +74,7 @@ function App() {
     setToken(auth_token);
   }
 
+
   function handleLogout(){ 
     window.localStorage.setItem('auth_token',null); 
     window.localStorage.setItem('auth_name',null); 
