@@ -31,22 +31,22 @@ function Navbar({token, odjava}) {
                 {window.localStorage.getItem("auth_name")=='Admin'  ? 
                             <>
                      <li className="nav-item">
-                        <Link className="nav-link" to="/admin">Admin  </Link>
+                        <Link className="nav-links" to="/admin">Admin  </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/admin/inbox">Inbox  </Link>
+                        <Link className="nav-links" to="/admin/inbox">Inbox  </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/admin/analiza">Analiza  </Link>
+                        <Link className="nav-links" to="/admin/analiza">Analiza  </Link>
                     </li>
                     </>
                     :
                     <>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/proizvodi">Ponuda  </Link>
+                        <Link className="nav-links" to="/proizvodi">Ponuda  </Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/korpa">Korpa  </Link>
+                        <Link className="nav-links" to="/korpa">Korpa  </Link>
                     </li>
                     </>
                     }

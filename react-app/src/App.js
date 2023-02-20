@@ -19,6 +19,7 @@ import Analiza from './Komponente/Analiza';
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
+
 function App() {
   const[token,setToken] = useState();
   const [cartNum, setCartNum] = useState(0); 
@@ -48,7 +49,7 @@ function App() {
       }
     };
     getRandomLists();
-  }, [ axiosInstance]);
+  }, [axiosInstance]);
   useEffect(() => {
     const getRandomLists2 = async () => {
       try {
@@ -68,7 +69,7 @@ function App() {
       }
     };
     getRandomLists2();
-  }, [ axiosInstance]);
+  }, [axiosInstance]);
   function addToken(auth_token){
     setToken(auth_token);
   }
@@ -77,18 +78,25 @@ function App() {
     window.localStorage.setItem('auth_token',null); 
     window.localStorage.setItem('auth_name',null); 
     console.log(window.localStorage.getItem("auth_token"));
-    window.location.reload();
+    window.location.set('/');
   }
   
   function refreshCart() {
     let u_korpi = proizvodi.filter((p) => p.kolicina > 0);
     setCartProducts(u_korpi);
-
-    var suma=u_korpi[0].cena;
-    cartProducts.forEach((p)=>{
-      suma+=p.cena*p.kolicina;
-    })
-    setSumPrice(suma);
+    var suma = 0;
+    if (u_korpi.length === 1) {
+      suma = u_korpi[0].cena * u_korpi[0].kolicina;
+    } else {
+      for (var x = 0; x < u_korpi.length; x++) {
+        suma += u_korpi[x].cena * u_korpi[x].kolicina;
+      }
+      /*cartProducts.forEach((o) => {
+        suma += o.cena * o.kolicina;
+      });*/
+      console.log(suma);
+      setSumPrice(suma);
+    }
   }
   function jeUKorpi(id){
     var postoji=0;
@@ -127,6 +135,7 @@ function App() {
             return;
           }else{
             p.kolicina--; 
+            setSumPrice(sum-p.cena);
           }
         }
       });

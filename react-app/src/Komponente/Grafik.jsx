@@ -1,4 +1,4 @@
-import '../GrafikCss.css'
+import '../GrafikCss.css';
 import {
  XYPlot,
  LineSeries,

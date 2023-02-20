@@ -49,7 +49,7 @@ function Izmeni({id}) {
           }
         };
         getRandomLists2();
-      }, [ axiosInstance]);
+      }, [axiosInstance]);
  
     function handleInput(e){  
         let newProductData = productData;  
