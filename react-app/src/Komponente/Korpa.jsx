@@ -53,11 +53,11 @@ function Korpa({proizvodi,onAdd,onRemove,sum }) {
 
   var navigate = useNavigate();
   function sacuvajKorpuUBazi(){
-    const user_id=window.localStorage.getItem('auth_id');
+    const user_id=window.sessionStorage.getItem('auth_id');
 
       //cuvacemo samo stavke korpe, za id korpe cemo uzeti id korisnika (jedna korpa za jednog usera)
       proizvodi.map(p=>{
-        axios.post("http://127.0.0.1:8000/api/stavke/?korpa_id="+user_id+"&proizvod_id="+p.id+"&kolicina="+p.kolicina+"&user_id="+user_id,{headers:{'Authorization': `Bearer ${ window.localStorage.getItem('auth_token')}`} } )
+        axios.post("http://127.0.0.1:8000/api/stavke/?korpa_id="+user_id+"&proizvod_id="+p.id+"&kolicina="+p.kolicina+"&user_id="+user_id,{headers:{'Authorization': `Bearer ${ window.sessionStorage.getItem('auth_token')}`} } )
         .then((res)=>{  
             console.log(res.data);
              alert("Uspesno sacuvano")
@@ -67,7 +67,7 @@ function Korpa({proizvodi,onAdd,onRemove,sum }) {
             if (error.response) {
               // Request made and server responded
               console.log(error.response.data);
-
+              console.log("Radi");
               console.log(error.response.status);
               console.log(error.response.headers);
             } else if (error.request) {

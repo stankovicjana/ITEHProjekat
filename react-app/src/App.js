@@ -38,7 +38,7 @@ function App() {
             headers: {
               token:
                 "Bearer " +
-                ( window.localStorage.getItem("auth_token")),
+                ( window.sessionStorage.getItem("auth_token")),
             },
           }
         );
@@ -58,12 +58,12 @@ function App() {
             headers: {
               token:
                 "Bearer " +
-                ( window.localStorage.getItem("auth_token")),
+                ( window.sessionStorage.getItem("auth_token")),
             },
           }
         );
         setPoruke(res.data);
-        console.log(res.data)
+        console.log("ovo su poruke",res.data)
       } catch (err) {
         console.log(err);
       }
@@ -76,10 +76,10 @@ function App() {
 
 
   function handleLogout(){ 
-    window.localStorage.setItem('auth_token',null); 
-    window.localStorage.setItem('auth_name',null); 
-    console.log(window.localStorage.getItem("auth_token"));
-    window.location.set('/');
+    window.sessionStorage.setItem("auth_token", null);
+    window.sessionStorage.setItem("auth_name", "");
+    window.sessionStorage.setItem("auth_id", null);
+    window.location("/");
   }
   
   function refreshCart() {
@@ -92,9 +92,6 @@ function App() {
       for (var x = 0; x < u_korpi.length; x++) {
         suma += u_korpi[x].cena * u_korpi[x].kolicina;
       }
-      /*cartProducts.forEach((o) => {
-        suma += o.cena * o.kolicina;
-      });*/
       console.log(suma);
       setSumPrice(suma);
     }
@@ -146,12 +143,12 @@ function App() {
   function deleteProizvode(id){
 
     axios
-    .delete("http://127.0.0.1:8000/api/proizvod/"+id,{headers:{'Authorization': `Bearer ${ window.localStorage.getItem('auth_token')}`} } )
+    .delete("http://127.0.0.1:8000/api/proizvod/"+id,{headers:{'Authorization': `Bearer ${ window.sessionStorage.getItem('auth_token')}`} } )
     .then((res)=>{  
         console.log(res.data);
-        const token = window.localStorage.getItem('auth_token');
+        const token = window.sessionStorage.getItem('auth_token');
         window.location. reload();
-        window.localStorage.set('auth_token',token);
+        window.sessionStorage.set('auth_token',token);
 
     })
     .catch(function (error) {
@@ -175,7 +172,7 @@ function postaviIDZaIzmenu(id){
   setIzmenaID(id);
 }
 const routerGuard = () => {
-  const token = window.localStorage.getItem("is_admin");
+  const token = window.sessionStorage.getItem("is_admin");
   if(token=="admin")
   return true;
   else return false;
@@ -197,6 +194,8 @@ const routerGuard = () => {
             <Route path="/admin/izmeni" element={routerGuard() ? <Izmeni id={izmenaID} ></Izmeni> : <Navigate replace to="/login" />} />
             <Route path="/admin/inbox" element={routerGuard() ? <Inbox poruke={poruke} ></Inbox> : <Navigate replace to="/login" />} />
             <Route path="/admin/analiza" element={routerGuard() ? <Analiza proizvodi={proizvodi} ></Analiza> : <Navigate replace to="/login" />} />
+
+            {/* <Route path="/admin/inbox" element={<Inbox poruke={poruke} ></Inbox> } /> */}
 
  
           

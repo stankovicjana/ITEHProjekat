@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 const Inbox = ({poruke}) => {
 
-    console.log(poruke)
-      const [datatable, setDatatable] = React.useState({
+    // console.log(poruke);
+      const [datatable, setDatatable] = useState({
 
         columns: [
           {
@@ -28,7 +28,7 @@ const Inbox = ({poruke}) => {
           }
 
         ],
-        rows:  poruke.map(p=>{
+        rows:  poruke.map((p)=>{
             return{
                 ime: p.ime,
                 email: p.email,

@@ -39,7 +39,7 @@ const Grafik = ({proizvodi} ) => {
         <HorizontalGridLines />
         <XAxis />
         <YAxis /> 
-        <LineSeries data={data} color="orange" />
+        <LineSeries data={data} color="blue" />
       </XYPlot>
     </div>
 </div>
