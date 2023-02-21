@@ -107,7 +107,7 @@ class ProizvodController extends Controller
             $l->naziv = $request->naziv;
             $l->proizvodjac = $request->proizvodjac;
             $l->cena = $request->cena;
-            $l->vrsta  =1;
+            $l->vrsta  = $request->vrsta;
             $l->image = $request->image;
             $l->zemlja_porekla = $request->zemlja_porekla; 
             $l->kolicina =0;

@@ -124,7 +124,7 @@ function Izmeni({id}) {
                      
                          
                      <select  className="input--style-3" name="vrsta" id="vrsta" defaultValue={productData.vrsta.id} onInput={handleInput}>
-                                     
+                     <option  className="input--style-3" value="0" id={0} > </option>
                                      <option  className="input--style-3" value="1" id={1} >Telefon</option>
                                      <option className="input--style-3" value="2" id={2} > TV </option> 
                                      <option className="input--style-3" value="3" id={3} >Monitor </option> 
